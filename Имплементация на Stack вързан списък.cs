@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class MyQueue<T>
+    class MyStack<T>
     {
         class Node
         {
@@ -23,32 +23,27 @@ namespace ConsoleApp1
         }
 
         private int count;
-        private Node head;
-        private Node tail;
+        private Node top;
 
-
-        public MyQueue<T> Enqueue(T item)
+        public MyStack<T> Push(T item)
         {
             Node node = new Node(item);
-            if (head == null)
-            {
-                head = node;
-                tail = node;
-            }
+
+            if (top == null) top = node;
             else
             {
-                tail.NextNode = node;
-                tail = node;
+                node.NextNode = top;
+                top = node;
             }
             Count++;
             return this;
         }
 
-        public T Dequeue()
+        public T Pop()
         {
             CheckIfEmpty();
-            T result = head.Value;
-            head = head.NextNode;
+            T result = top.Value;
+            top = top.NextNode;
             Count--;
             return result;
         }
@@ -56,15 +51,15 @@ namespace ConsoleApp1
         public T Peek()
         {
             CheckIfEmpty();
-            return head.Value;
+            return top.Value;
         }
 
         public T[] ToArray()
         {
             CheckIfEmpty();
-            T[] arr = new T[count];
-            Node node = head;
-            for (int i = 0; i < count; i++)
+            T[] arr = new T[Count];
+            Node node = top;
+            for (int i = 0; i < Count; i++)
             {
                 arr[i] = node.Value;
                 node = node.NextNode;
@@ -74,10 +69,9 @@ namespace ConsoleApp1
 
         private void CheckIfEmpty()
         {
-            if (head == null) throw new Exception("The queue is empty!");
+            if (top == null) throw new Exception("The queue is empty!");
         }
 
         public int Count { get => count; set => count = value; }
-
     }
 }
