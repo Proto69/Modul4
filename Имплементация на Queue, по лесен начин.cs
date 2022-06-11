@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +22,7 @@ namespace ConsoleApp1
             public Node NextNode { get => nextNode; set => nextNode = value; }
         }
 
+        
         private int count;
         private Node head;
         private Node tail;

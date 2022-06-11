@@ -17,11 +17,9 @@ namespace ConsoleApp1
             {
                 Value = value;
             }
-
-            public T Value { get => value; set => this.value = value; }
-            public Node NextNode { get => nextNode; set => nextNode = value; }
         }
 
+        using Node;
         private int count;
         private Node top;
 
