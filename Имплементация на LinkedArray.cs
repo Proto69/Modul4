@@ -82,6 +82,6 @@ namespace ConsoleApp1
             return index;
         }
 
-        public int Count { get => count; set => count = value; }
+        public int Count { get => count; private set => count = value; }
     }
 }

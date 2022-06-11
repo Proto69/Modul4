@@ -75,5 +75,7 @@ namespace ConsoleApp1
             end = count;
             array = newArray;
         }
+
+        public int Count { get => count; private set => count = value; }
     }
 }

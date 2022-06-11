@@ -77,7 +77,7 @@ namespace ConsoleApp1
             if (head == null) throw new Exception("The queue is empty!");
         }
 
-        public int Count { get => count; set => count = value; }
+        public int Count { get => count; private set => count = value; }
 
     }
 }
